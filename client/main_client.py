@@ -132,4 +132,12 @@ class TerminalClient:
 
 
 if __name__ == "__main__":
-    TerminalClient()
+    try:
+        ip = input("Nhập IP Central Server (bỏ trống nếu là 127.0.0.1): ")
+        if not ip:
+            ip = '127.0.0.1'
+
+        # Gọi lớp TerminalClient với IP vừa nhập
+        TerminalClient(server_ip=ip, server_port=5001)
+    except KeyboardInterrupt:
+        print("\nĐang thoát ứng dụng...")
